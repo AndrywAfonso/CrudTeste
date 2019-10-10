@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CRUDTeste.Models.Pessoas>
+
+<p>
+    @Html.ActionLink("Adicionar nova pessoa", "AdicionarPessoa")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PES_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PES_NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PES_CPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PES_DT_NASCIMENTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PES_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PES_NOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PES_CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PES_DT_NASCIMENTO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "AtualizarPessoa", new { id = item.PES_ID }) |
+            @Html.ActionLink("Excluir", "DeletePessoa", new { id = item.PES_ID }, new { onclick = "return confirm('Quer mesmo excluir?');"})
+        </td>
+    </tr>
+}
+
+</table>
